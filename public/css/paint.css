@@ -1,0 +1,139 @@
+body{
+    overflow			: hidden;
+
+    background-color	: #eeeeee;
+    color				: #778777;
+    font-family			: "Trebuchet MS", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family			: Georgia, serif;
+    text-shadow         : rgba(64, 64, 64, 0.5) 4px 4px 5px;
+    margin              : 15px 20px;
+}
+h1{
+    font-size			: 1.8em;
+}
+h2{
+    font-size			: 1.7em;
+}
+h3{
+    font-size			: 1.6em;
+}
+h4{
+    font-size			: 1.5em;
+}
+h5{
+    font-size			: 1.4em;
+}
+h6{
+    font-size			: 1.3em;
+}
+
+div.home div.Content{
+    text-align			: center;
+}
+div#content{
+    position			: fixed;
+    left				: 0;
+    top					: 0;
+    display				: block;
+    height				: 75%;
+    width				: 75%;
+}
+div#divCanvas canvas {
+    position                    : absolute;
+    top                         : 0;
+    left                        : 0;
+    border-right      			: 1px solid #aaaaaa;
+    border-bottom 				: 1px solid #aaaaaa;
+    border-bottom-right-radius	: 20px;
+    cursor                      : crosshair;
+}
+div#divCanvas canvas#canvasMain {
+    background-color    : #fff;
+}
+
+div#righColumn{
+    position				: fixed;
+    right					: 0;
+    top						: 0;
+
+    display					: block;
+
+    height					: 100%;
+    width					: 25%;
+    min-width               : 200px;
+
+    padding-top				: 20px
+}
+div#righColumn div#text p{
+    margin                  : 10px 20px;
+}
+div#righColumn div#drawCommands {
+    margin                  : 20px 0px;
+    background-color        : #445444;
+    padding-bottom          : 10px;
+    text-align              : center;
+}
+div#righColumn div#drawCommands h6{
+     margin                 : 20px 0px;
+     background-color       : #445444;
+     text-align             : center;
+     padding                : 10px 0px 0px 0px;
+ }
+div#righColumn div#drawCommands span {
+    display                 : inline-block;
+    margin                  : 0px 20px;
+    cursor                  : pointer;
+}
+div#righColumn div#drawCommands ul li {
+    text-align              : left;
+    list-style              : none;
+    margin                  : 4px 0px;
+}
+
+div#chat {
+    position				: fixed;
+    bottom					: 0;
+    left					: 0;
+    right					: 0;
+
+    display					: block;
+
+    height					: 25%;
+    width					: 75%;
+
+    border-top-right-radius	: 20px;
+    border-top 				: 1px solid #aaaaaa;
+    border-right 			: 1px solid #aaaaaa;
+    color					: #556555;
+    margin					: 0;
+    text-indent             : 5px;
+}
+div#chat input#chatTextInput {
+    width				: 90%;
+}
+
+div#chat div#chatMessages {
+    font-size			: .8em;
+    height				: 85%;
+    overflow			: auto;
+}
+
+button.menuButton {
+    background-color	: #eeeeee;
+    color				: #778777;
+    border-color		: #778777;
+    border-size			: 2px;
+    border-style		: solid;
+    padding				: 2px 5px;
+}
+
+button.menuButton:hover {
+    background-color	: #778777;
+    border-color		: #eeeeee;
+    color				: #eeeeee;
+}
+
+
