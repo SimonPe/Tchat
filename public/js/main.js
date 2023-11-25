@@ -160,10 +160,10 @@ function outputUsers(users) {
 
 socket.on('individuelRoom', (data)=> {
   console.log('individuelRoom', data)
-  // const leaveRoom = confirm('VOus voulez accepter l\'invitation ?');
+  // const leaveRoom = confirm('Vous voulez accepter l\'invitation ?');
 
   if (data.reception == username) {
-    const leaveRoom = confirm('VOus voulez accepter l\'invitation ?');
+    const leaveRoom = confirm('Vous voulez accepter l\'invitation ?');
     if (leaveRoom) {
       console.log(leaveRoom)
       userperso.innerText = data.demandeur
@@ -179,7 +179,7 @@ socket.on('individuelRoom', (data)=> {
 
 //Prompt the user before leave chat room
 document.getElementById('leave-btn').addEventListener('click', () => {
-  const leaveRoom = confirm('VOus voulez quitter la conversation ?');
+  const leaveRoom = confirm('Vous voulez quitter la conversation ?');
   if (leaveRoom) {
     window.location = '../index.html';
   } else {
