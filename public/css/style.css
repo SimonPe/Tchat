@@ -353,3 +353,15 @@ input[type=submit]:focus {
   outline: none;
   background-color: #56baed;
 }
+body {
+  font-family: Arial, sans-serif;
+}
+
+#logo {
+  max-width: 100px; /* Ajustez la largeur selon vos besoins */
+  height: auto; /* Cela maintiendra les proportions de l'image */
+  margin-right: 10px; /* Marge à droite du logo pour l'espacement */
+}
+#imageInput {
+  display: none; /* Masquer le sélecteur de fichier */
+}
