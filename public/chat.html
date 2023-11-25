@@ -3,26 +3,16 @@
 
 <head>
   <meta charset="utf-8">
-  <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
-  <!--  All snippets are MIT license http://bootdey.com/license -->
   <title>Chati - Dans un Salon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="chemin/vers/emojipicker.css">
 </head>
 
 <body>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--
-<div id="connecter">
-  <button id="btnconnection">Connecter</button>
-</div>
-<div id="room" style="display: none;">
-  <button id="salle1">Salle 1</button>
-  <button id="salle2">Salle 2</button>
-  <button id="salle3">Salle 3</button>
-</div>-->
   <div id="page">
     <div class="container app">
       <div class="row app-one">
@@ -42,37 +32,10 @@
                 Test
               </div>
             </div>
-
-            <!--<div class="row searchBox">
-              <div class="col-sm-12 searchBox-inner">
-                <div class="form-group has-feedback">
-                  <input id="searchText" type="text" class="form-control" name="searchText" placeholder="Search">
-                  <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                </div>
-              </div>
-            </div>-->
+            
 
             <div class="row sideBar" id="usersRoom">
 
-              <!--<div class="row sideBar-body">
-              <div class="col-sm-3 col-xs-3 sideBar-avatar">
-                <div class="avatar-icon">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                </div>
-              </div>
-              <div class="col-sm-9 col-xs-9 sideBar-main">
-                <div class="row">
-                  <div class="col-sm-8 col-xs-8 sideBar-name">
-                    <span class="name-meta" id="">John Doe
-                  </span>
-                  </div>
-                  <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                    <span class="time-meta pull-right">18:18
-                  </span>
-                  </div>
-                </div>
-              </div>
-            </div>-->
 
             </div>
           </div>
@@ -315,42 +278,6 @@
 
           </div>
           <div class="row message" id="conversation" style="display: block;">
-            <!--<div class="row message-previous">
-            <div class="col-sm-12 previous">
-              <a onclick="previous(this)" id="ankitjain28" name="20">
-              Show Previous Message!
-              </a>
-            </div>
-          </div>
-  
-          <div class="row message-body">
-            <div class="col-sm-12 message-main-receiver">
-              <div class="receiver">
-                <div class="message-text">
-                 Hi, what are you doing?!
-                </div>
-                <span class="message-time pull-right">
-                  Sun
-                </span>
-              </div>
-            </div>
-          </div>
-  
-          <div class="row message-body">
-            <div class="col-sm-12 message-main-sender">
-              <div class="sender">
-                <span class="message-time pull-right">
-                  Nom
-                </span>
-                <div class="message-text">
-                  I am doing nothing man!
-                </div>
-                <span class="message-time pull-right">
-                  Sun
-                </span>
-              </div>
-            </div>
-          </div>-->
           </div>
           <div class="row reply">
             <form id="chat-form" style="display: block;">
@@ -1015,19 +942,6 @@
 
   </div>
   <script type="text/javascript">
-    /*$(function(){
-        $(".heading-compose").click(function() {
-          $(".side-two").css({
-            "left": "0"
-          });
-        });
-    
-        $(".newMessage-back").click(function() {
-          $(".side-two").css({
-            "left": "-100%"
-          });
-        });
-    })*/
   </script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
@@ -1037,85 +951,10 @@
       $('.sideBar-body > .user').click((data)=> {
         console.log('click', data)
     })
-      /*var socket = io().connect('http://loclhost:3000');
-      console.log("socket: ", socket) 
-      listsUsersRoomHtml = '<div class="row sideBar-body"><div class="col-sm-3 col-xs-3 sideBar-avatar"> <div class="avatar-icon"><img src="https://bootdey.com/img/Content/avatar/avatar1.png"></div></div><div class="col-sm-9 col-xs-9 sideBar-main"><div class="row"><div class="col-sm-8 col-xs-8 sideBar-name"><span class="name-meta">' + 
-        'users' + ' </span></div><div class="col-sm-4 col-xs-4 pull-right sideBar-time"><span class="time-meta pull-right">18:18</span></div></div></div></div>';
-
-      // $('#usersRoom').append(listsUsersRoomHtml);
-      users = []
-      rooms = []
-      room = {}
-      user = {}
-
-      $('#btnconnection').click(function() {
-        socket.emit('login', {
-          username: "Mariko",
-          email   : "oudoumariko@gmail.com"
-        })
-      });
-
-            
-      async function addHtmlUser (users) {
-        $('.user').remove();
-
-        users.forEach(user => {
-          // $( "div" ).remove( ".hello" );
-
-          listsUsersRoomHtml = '<div class="row sideBar-body user"><div class="col-sm-3 col-xs-3 sideBar-avatar"> <div class="avatar-icon"><img src="https://bootdey.com/img/Content/avatar/avatar1.png"></div></div><div class="col-sm-9 col-xs-9 sideBar-main"><div class="row"><div class="col-sm-8 col-xs-8 sideBar-name"><span class="name-meta">' + 
-            user.username + ' </span></div><div class="col-sm-4 col-xs-4 pull-right sideBar-time"><span class="time-meta pull-right">18:18</span></div></div></div></div>';
-            $('#usersRoom').append(listsUsersRoomHtml);
-        });
-      }
-
-      // J'ecoute 
-      socket.on('login', data => { 
-        console.log('login',data)
-        users = data.users
-        user = data.user
-        
-        $('#connecter').css('display', 'none')
-        $('#room').css('display', 'block')
-
-       });
-
-       $('#salle1').click(function() {
-
-        socket.emit('addroom', {
-          //id: rooms[0].id,
-          user   : user
-        })
-
-        $('#room').css('display', 'none')
-        $('#page').css('display', 'block')
-        console.log('users: ', users)
-      });
-
-      socket.on('addroom', data => { 
-          console.log('room user ',data)
-          if (data) {
-            addHtmlUser(data.room.users)
-          }
-       });
-
-       async function getUsers (data) {
-         users = data
-        console.log('users : ',users)
-
-       }
-       console.log('users : ',users)*/
-
-
-
-
-
-      /*var template = document.getElementById('auth').innerHTML;
-      console.assert(template)
-      var rendered = Mustache.render(template, { name: 'Luke' });
-      document.getElementById('target').innerHTML = rendered;*/
 
 
     })
+
 
   </script>
 
