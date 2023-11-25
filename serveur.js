@@ -20,20 +20,20 @@ app.use(express.static(__dirname + '/public'));
 users = []
 rooms = [
     {
-        value: "Salle 1",
-        name: "Salle 1"
+        value: "Discussion 1",
+        name: "Discussion 1"
     },
     {
-        value: "Salle 2",
-        name: "Salle 2"
+        value: "Discussion 2",
+        name: "Discussion 2"
     },
     {
-        value: "Salle 3",
-        name: "Salle 3"
+        value: "Discussion 3",
+        name: "Discussion 3"
     },
     {
       value: "creer",
-      name: "Creer son salle"
+      name: "Crée sa discussion"
     },
    /* {
       value: "individuel",
