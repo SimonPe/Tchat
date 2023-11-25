@@ -69,11 +69,11 @@ function outputMessage(message) {
 
   receptionMessage = '<div class="row message-body"><div class="col-sm-12 message-main-receiver"><div class="receiver"><span class="message-time pull-right">'
                  + message.username + '</span><div class="message-text">' +
-       message.text + '</div><span class="message-time pull-right"> Sun</span></div></div></div>';
+       message.text + '</div><span class="message-time pull-right"> </span></div></div></div>';
 
   sendMessage = '<div class="row message-body"><div class="col-sm-12 message-main-sender"><div class="sender"><span class="message-time pull-right">'
        + message.username + '</span><div class="message-text">' +
-        message.text + '</div><span class="message-time pull-right"> Sun</span></div></div></div>';   
+        message.text + '</div><span class="message-time pull-right"> </span></div></div></div>';   
 
   /*sendMessage = '<div class="row message-body"><div class="col-sm-12 message-main-sender"><div class="sender"><div class="message-text">' +
        message.text + '</div><span class="message-time pull-right"> Sun</span></div></div></div>';*/
