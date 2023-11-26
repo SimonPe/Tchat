@@ -35,42 +35,26 @@ rooms = [
       value: "creer",
       name: "Crée sa discussion"
     },
-   /* {
-      value: "individuel",
-      name: "Causer avec une personne"
-    },*/
 ]
 
 io.on('connection', socket => {
-    // console.log('connection du client ------------------------', socket.client.id)
 
     socket.on('joinRoom', ({ username, room }) => {
         newusers = false
         const user = userJoin(socket.id, username, room);
-        // console.log('new user', { username, room })
         socket.join(user.room);
     
-        // Welcome current user
         socket.emit('message', formatMessage("Serveur", 'Bienvenue dans la conversation!'));
-    
-        // Broadcast when a user connects
-        /*socket.broadcast
-          .to(user.room)
-          .emit(
-            'message',
-            formatMessage(botName, `${user.username} has joined the chat`)
-          );*/
+
     
 
 
         if (room == "individuel" ) {
-          // getUsers
           io.emit('roomUsers', {
             room: user.room,
             users: getUsers()
           });
         } else {
-        // Send users and room info
         io.to(user.room).emit('roomUsers', {
           room: user.room,
           users: getRoomUsers(user.room)
@@ -80,14 +64,12 @@ io.on('connection', socket => {
       });
 
       
-  // Listen for chatMessage
   socket.on('chatMessage', msg => {
     const user = getCurrentUser(socket.id);
 
     io.to(user.room).emit('message', formatMessage(user.username, msg));
   });
 
-    // Listen for chatMessage
     socket.on('individuelRoom', (roomind) => {
 
       const user1 = findByName(roomind.username1)
@@ -109,15 +91,9 @@ io.on('connection', socket => {
       user1.id = socket.id
       updateRoom(user1)
       socket.join(user1.room);
-// Send users and room info
-    /*io.to(user1.room).emit('roomUsers', {
-      room: user1.room,
-      users: getRoomUsers(user1.room)
-    });*/
     })
 
 
-  // Runs when client disconnects
   socket.on('disconnect', () => {
     const user = userLeave(socket.id);
 
@@ -149,48 +125,13 @@ io.on('connection', socket => {
         }
      });
 
-     // send rooms
      socket.emit("sendRooms", rooms);
 
      socket.on('addroom', addRoom => { 
        console.log("addroom", addRoom)
        rooms.push(addRoom)
        console.log(rooms)
-        // user.id = socket.client.id
-        /*rooms.find( room => {
-            if (room.id == addUser.id) {
-                room.users.push(addUser.user)
-            }
-        })
-        console.log('room add user : ', addUser.user)
-        console.log('room user : ', rooms[0].users)
-
-        if (addUser.user) {
-            io.sockets.emit('addroom', {
-                response: 'ajout dans une salle',
-                room: rooms.find( room  => {
-                    if (room.id == addUser.id) {
-                        return room
-                    }
-                }),
-                user: addUser.user,
-            })
-        }*/
      });
-
-
-/*
-     socket.on('newmsg', msg => { 
-
-        console.log("new message :", msg.message)
-        console.log("user :", msg.user)
-        console.log("room :", msg.room)
-
-     });
-
-     socket.on('disconnect', (data) => { 
-      console.log('disconnect', data)
-     });*/
 });
 
 
