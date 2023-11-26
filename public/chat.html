@@ -955,8 +955,16 @@
 
 
     })
+    $(document).ready(function () {
+    // Récupérer le chemin de l'image depuis localStorage
+    var userImage = localStorage.getItem('userImage');
 
-
+    // Vérifier si le chemin de l'image existe
+    if (userImage) {
+        // Mettre à jour l'attribut src de l'image dans chat.html
+        $('#userImage').attr('src', userImage);
+    }
+});
   </script>
 
 </body>

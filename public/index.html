@@ -8,6 +8,7 @@
     <link rel="icon" href="logo.png" type="image/x-icon">
     <title>Chati - Incription</title>
     <input type="file" id="imageInput" class="fadeIn second" accept="image/*">
+    <input type="file" id="imageInput" />
   </head>
   <body>
           </div>
@@ -107,6 +108,25 @@
     function handleImageClick() {
     $('#imageInput').click(); // Déclencher le clic sur le sélecteur de fichier
 }
-      </script>
+function handleImageClick() {
+    $('#imageInput').click(); // Déclencher le clic sur le sélecteur de fichier
+}
+
+$('#imageInput').change(function (event) {
+    var input = event.target;
+    var reader = new FileReader();
+
+    reader.onload = function () {
+        // Mettre à jour l'attribut src de l'image avec les données de l'image chargée
+        $('#icon').attr('src', reader.result);
+
+        // Stocker le chemin de l'image dans localStorage
+        localStorage.setItem('userImage', reader.result);
+    };
+
+    // Charger l'image sélectionnée
+    reader.readAsDataURL(input.files[0]);
+});
+</script>
 </body>
 </html>
